@@ -1,0 +1,61 @@
+import discord'
+from discord.ext.commands import Bot
+import random
+name bot: Natasha
+import secrets
+
+messageMort = ["Salope", "Enculé", "Fils de pute","Fille de pute", "Va te suicider","Va te faire foutre","Conne","Cons"{0}, "]
+
+natasha = Bot(command_prefix="!")
+
+
+@boptiste.event
+async def on_ready():
+    print("En cours de connexion...")
+    print("Bot <" + Natsha.user.name + "> connecter")
+
+
+@boptiste.command(pass_context = True)
+async def baptou(ctx, *args):
+    await Natasha.delete_message(ctx.message)
+    await Natasha.("Bonjour je suis Natasha !")
+    await Natasha.say("Je suis un Bot !")
+    await Natasha.say("J'aime beaucoup le gaming :o")
+    await Natasha.say("Je suis un Bot modérateur à l'origine")
+    await Natasha.say("Abonne toi à la chaîne de Dynasty Studio:https://www.youtube.com/channel/UCGzapNp_7t0CmErnd-vyGMQ?view_as=subscriber")
+
+@natasha.command(pass_context = True)
+async def say(ctx, *, message : str):
+    await natasha.delete_message(ctx.message)
+    if ctx.message.author.id == "186171679163154441" or "303470630114820097":
+        await natasha.say(":microphone2: " + message + " :microphone2:")
+        return
+    else:
+        await natasha.say(":warning: " + ctx.message.author.mention + " : Tu n'as pas le droit de faire la commande !say")
+        return
+
+@natasha.command(pass_context = True)
+async def don(ctx, *args):
+    await natasha.delete_message(ctx.message)
+    
+
+@natasha.command(pass_context = True)
+async def kill(ctx, member : discord.Member = None):
+    await natasha.delete_message(ctx.message)
+    if member is None:
+        await natasha.say("Eh c'est pas très gentil d'insulter des membres!")
+        return
+    elif member.id == ("186171679163154441" or "303470630114820097"):
+        await natasha.say("On n'insulte pas des utilisateurs ici !!!")
+        return
+    elif member.id == ctx.message.author.id:
+        await natasha.say("Sa sert à rien d'insulter -_-' ")
+        return
+    else:
+        nombre = random.randint(0, len(messageMort))
+        text = messageMort[nombre].format(member.mention)
+        await natasha.say(":knife: " + text + " :knife:")
+        return
+
+
+natasha.run(secrets.BOT_TOKEN)
